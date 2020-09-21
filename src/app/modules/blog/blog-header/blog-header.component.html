@@ -1,0 +1,10 @@
+<header class="header">
+  <div class="header--title">Blog</div>
+  <div class="flex mx-4">
+    <div class="px-2" *ngFor="let menu of menus">
+      <span class="header--link">{{ menu | uppercase }}</span>
+    </div>
+  </div>
+  <div class="header--link ml-auto" routerLink="/portfolio">About Author</div>
+  <div class="header--link ml-4" routerLink="/editor">Editor</div>
+</header>

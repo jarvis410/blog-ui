@@ -1,0 +1,7 @@
+<ng-container *ngFor="let post of posts">
+  <p-card [header]="post.title" styleClass="my-4 bg-green-200">
+    <p>{{ post.summary }}</p>
+  </p-card>
+</ng-container>
+
+<p-paginator [rows]="10" [totalRecords]="100"></p-paginator>

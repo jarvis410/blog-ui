@@ -1,0 +1,30 @@
+<app-editor-header></app-editor-header>
+
+<div class="container my-4">
+  <form [formGroup]="formGroup">
+    <!-- editor -->
+    <p-editor formControlName="article" [style]="{'min-height':'250px'}">
+    </p-editor>
+
+    <!-- keywords -->
+    <p-multiSelect formControlName="keywords" placeholder="Select Keywords" filterPlaceHolder="Filter Keywords"
+      [options]="keywords" optionLabel="name" [showToggleAll]="false" [maxSelectedLabels]="10" styleClass="mt-2 w-full">
+    </p-multiSelect>
+
+    <!-- action buttons -->
+    <div class="flex my-4">
+      <p-button pRipple label="Save" icon="pi pi-save" styleClass="p-button-success"></p-button>
+      <p-button pRipple label="Draft" styleClass="p-button-secondary" class="ml-2"></p-button>
+      <p-toggleButton formControlName="showPreview" [onLabel]="onLabel" [offLabel]="offLabel" class="ml-auto">
+      </p-toggleButton>
+    </div>
+  </form>
+
+  <!-- preview -->
+  <ng-container *ngIf="showPreview">
+    <h1 class="mt-4">Preview</h1>
+    <div class="ql-container ql-snow" style="border-width: 0px;">
+      <div class="ql-editor" [innerHTML]="article"></div>
+    </div>
+  </ng-container>
+</div>
