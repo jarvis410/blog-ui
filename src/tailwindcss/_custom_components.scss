@@ -1,13 +1,17 @@
+.wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .header {
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 1px 3px 0 rgba(0, 0, 0, 0.12);
-  @apply flex items-baseline px-12 py-2 bg-white sticky top-0;
+  @apply flex items-baseline px-10 py-2 bg-gray-900 text-white sticky top-0 z-50 shadow-md;
 }
 .header--title {
-  color: #2196f3;
-  @apply text-2xl;
+  @apply text-2xl font-semibold text-white cursor-pointer;
 }
 .header--link {
+  @apply text-white text-sm;
   @extend .link;
 }
 
@@ -15,9 +19,20 @@
   @apply cursor-pointer;
 }
 .link:hover {
-  color: #2196f3;
-  @apply underline;
+  @apply underline text-yellow-400;
 }
 .link:focus {
   @apply outline-none;
+}
+
+@screen md {
+  .wrapper {
+    width: 80%;
+  }
+  .header {
+    @apply px-16 py-2;
+  }
+  .header--link {
+    @apply text-base;
+  }
 }

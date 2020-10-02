@@ -2,7 +2,7 @@ import { FeedbackDTO } from './feedback-dto';
 import { KeywordDTO } from './keyword-dto';
 
 export class PostDTO {
-  id: number;
+  id: string;
   title: string;
   summary: string;
   post: string;

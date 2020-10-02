@@ -1,0 +1,21 @@
+<div class="flex">
+
+  <aside class="hidden md:block fixed h-full w-32 lg:w-64 overflow-y-scroll">
+    <div class="flex flex-col justify-center">
+      <!-- share -->
+      <label class="text-gray-500">Share</label>
+    </div>
+  </aside>
+
+  <div *ngIf="post" class="ml-0 md:ml-32 lg:ml-64 px-0 md:px-8 lg:px-12">
+    <h1 class="text-4xl text-gray-800">{{ post.title }}</h1>
+    <div class="flex mb-4">
+      <span *ngFor="let keyword of post.keywords" class="text-sm text-gray-900 bg-gray-300 rounded px-2 py-1 mr-2">
+        {{ keyword.name }}
+      </span>
+    </div>
+    <div class="ql-container ql-snow" style="border-width: 0px;">
+      <div class="ql-editor shadow-lg px-16 py-1 md:px-4 md:py-2" [innerHTML]="post.post"></div>
+    </div>
+  </div>
+</div>

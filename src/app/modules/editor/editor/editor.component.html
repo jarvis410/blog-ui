@@ -1,18 +1,30 @@
 <app-editor-header></app-editor-header>
 
-<div class="container my-4">
+<div class="wrapper my-8">
   <form [formGroup]="formGroup">
+    <!-- title -->
+    <div class="p-field mb-2">
+      <label for="title">Title</label>
+      <input pInputText appFocus id="title" type="text" formControlName="title" class="w-full">
+    </div>
+
+    <!-- summary -->
+    <div class="p-field mb-2">
+      <label for="summary">Summary</label>
+      <textarea pInputTextarea inputId="summary" rows="3" formControlName="summary" class="w-full"></textarea>
+    </div>
+
     <!-- editor -->
-    <p-editor formControlName="article" [style]="{'min-height':'250px'}">
+    <p-editor formControlName="article" [style]="{'min-height':'250px'}" styleClass="p-field mb-2">
     </p-editor>
 
     <!-- keywords -->
     <p-multiSelect formControlName="keywords" placeholder="Select Keywords" filterPlaceHolder="Filter Keywords"
-      [options]="keywords" optionLabel="name" [showToggleAll]="false" [maxSelectedLabels]="10" styleClass="mt-2 w-full">
+      [options]="keywords" optionLabel="name" [showToggleAll]="false" [maxSelectedLabels]="10" styleClass="mb-2 w-full">
     </p-multiSelect>
 
     <!-- action buttons -->
-    <div class="flex my-4">
+    <div class="flex mt-2">
       <p-button pRipple label="Save" icon="pi pi-save" styleClass="p-button-success"></p-button>
       <p-button pRipple label="Draft" styleClass="p-button-secondary" class="ml-2"></p-button>
       <p-toggleButton formControlName="showPreview" [onLabel]="onLabel" [offLabel]="offLabel" class="ml-auto">

@@ -34,6 +34,8 @@ export class EditorComponent implements OnInit {
 
   private initFormGroup(): void {
     this.formGroup = this._fb.group({
+      title: [, Validators.required],
+      summary: [, Validators.required],
       article: ['', Validators.required],
       keywords: [[], Validators.required],
       showPreview: [true],

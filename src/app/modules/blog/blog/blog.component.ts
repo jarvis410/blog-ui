@@ -10,6 +10,6 @@ export class BlogComponent implements OnInit {
   constructor(private _title: Title) {}
 
   ngOnInit(): void {
-    this._title.setTitle('Blog');
+    this._title.setTitle(`Parth's Blog`);
   }
 }

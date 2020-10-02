@@ -1,5 +1,5 @@
 export class FeedbackDTO {
-  id: number;
+  id: string;
   rating: number;
   comment: string;
 }

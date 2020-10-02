@@ -6,8 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./blog-header.component.scss'],
 })
 export class BlogHeaderComponent implements OnInit {
-  menus = ['html', 'css', 'javascript', 'spring', 'angular', 'database'];
-
   constructor() {}
 
   ngOnInit(): void {}

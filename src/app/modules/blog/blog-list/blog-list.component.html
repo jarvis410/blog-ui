@@ -1,7 +1,45 @@
-<ng-container *ngFor="let post of posts">
-  <p-card [header]="post.title" styleClass="my-4 bg-green-200">
-    <p>{{ post.summary }}</p>
-  </p-card>
-</ng-container>
+<div class="flex wrapper">
 
-<p-paginator [rows]="10" [totalRecords]="100"></p-paginator>
+  <!-- sidebar -->
+  <aside class="hidden md:block fixed h-full w-32 lg:w-64 overflow-y-scroll">
+    <div class="flex flex-col justify-center">
+
+      <!-- search input -->
+      <form>
+        <label class="text-lg text-white">Search for blog</label>
+        <input type="text" placeholder="Search"
+          class="px-2 py-1 mt-2 rounded bg-gray-800 focus:bg-gray-900 text-white focus:shadow-xl w-10/12" />
+        <button class="bg-gray-900 rounded ml-2 focus:outline-none"><i class="pi pi-search text-white p-2"></i></button>
+      </form>
+
+      <!-- keywords -->
+      <label class="text-lg text-white mt-8">Keywords</label>
+      <div class="flex flex-wrap mt-2">
+        <span class="cursor-pointer text-xs lg:text-sm text-indigo-200 mr-4 my-1 rounded hover:text-yellow-400"
+          *ngFor="let keyword of keywords">
+          {{ keyword.name }}
+        </span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- blog list -->
+  <div class="ml-0 md:ml-32 lg:ml-64 px-0 md:px-8 lg:px-12">
+    <ng-container *ngFor="let post of posts">
+      <div
+        class="shadow md:shadow-md cursor-pointer rounded px-5 py-4 mb-2 hover:shadow-inner bg-gray-800 hover:bg-gray-900"
+        (click)="onPostClick(post.id)">
+        <h2 class="text-blue-300 text-base md:text-lg mb-2">{{ post.title }}</h2>
+        <p class="text-yellow-100 leading-snug text-sm md:text-base mb-2">{{ post.summary }}</p>
+        <div class="flex">
+          <span *ngFor="let keyword of post.keywords" class="text-xs md:text-sm text-green-200 mr-3 rounded">
+            {{ keyword.name }}
+          </span>
+          <div class="ml-auto text-orange-200">{{ post.createdDateTime }}</div>
+        </div>
+      </div>
+    </ng-container>
+    <p-paginator [rows]="10" [totalRecords]="posts.length" [alwaysShow]="false"></p-paginator>
+  </div>
+
+</div>
